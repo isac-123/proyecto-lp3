@@ -30,7 +30,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                    @auth
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/evento/mostrar">Mostrar </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/evento/actualizar">Actualizar </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/evento/crear">Crear </a>
+                        </li>            
+                    @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
