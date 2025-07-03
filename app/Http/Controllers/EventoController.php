@@ -7,7 +7,8 @@ use App\Models\Evento;
 
 class EventoController extends Controller
 {
-        public function mostrar()
+#aaaaaa
+    public function mostrar()
     {
         if (Auth::check()) {
             
