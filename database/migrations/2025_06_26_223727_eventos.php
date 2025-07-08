@@ -9,6 +9,7 @@ return new class extends Migration
 
 public function up()
 {
+    #aaaaaaaa
     Schema::create('eventos', function (Blueprint $table) {
         $table->id();                 
         $table->string('nombre');      

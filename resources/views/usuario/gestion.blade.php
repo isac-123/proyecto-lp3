@@ -3,7 +3,7 @@
 @section('titulo')
     Gestión de Usuarios
 @endsection
-
+#aaaa
 @section('cuerpo')
 <h1>Usuarios Registrados</h1>
 <table class="table">

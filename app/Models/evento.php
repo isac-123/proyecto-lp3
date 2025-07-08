@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class evento extends Model
 {
+    
+    #aaaaaaaa
     use HasFactory;
 
     protected $fillable = [
