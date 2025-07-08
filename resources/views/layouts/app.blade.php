@@ -35,10 +35,16 @@
                             <a class="nav-link" href="/evento/mostrar">Mostrar </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/evento/actualizar">Actualizar </a>
+                            <a class="nav-link" href="/notificacion/enviar">notificaciones </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/evento/crear">Crear </a>
+                            <a class="nav-link" href="/evento/buscar">buscar evento </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/evento/inscripcion">inscribir a evento </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/evento/crear">Crear evento </a>
                         </li>            
                     @endauth
                     </ul>

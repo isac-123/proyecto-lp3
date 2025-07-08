@@ -5,15 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class evento extends Model
+class recurso extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nombre', 
-        'fecha', 
-        'categoria', 
-        'descripcion',
-        'tipo'
+        'nombre', 'tipo', 'descripcion', 'disponible', 'evento_id'
     ];
 }

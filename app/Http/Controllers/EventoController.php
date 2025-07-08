@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Evento;
+use App\Models\Inscripcion;
 
 class EventoController extends Controller
 {
-        public function mostrar()
+    public function mostrar()
     {
         if (Auth::check()) {
             
@@ -26,7 +27,7 @@ class EventoController extends Controller
         }
         
     }
-     public function guardar(Request $request)
+    public function guardar(Request $request)
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
@@ -44,7 +45,6 @@ class EventoController extends Controller
 
         return redirect()->route('evento.mostrar')->with('success', 'Evento creado exitosamente');
     }
-
     public function editar($id)
     {
         if (Auth::check()) {
@@ -54,7 +54,7 @@ class EventoController extends Controller
             return redirect('login');
         }
     }
-     public function modificarGuardar(Request $request, $id)
+    public function modificarGuardar(Request $request, $id)
     {
         
         $request->validate([
@@ -76,9 +76,51 @@ class EventoController extends Controller
         return redirect()->route('evento.mostrar')->with('success', 'Evento actualizado correctamente');
     }
     public function eliminar($id){
-        $evento = Evento::findOrFail($id);  
+        $evento = Evento::find($id);  
         $evento->delete();
         return redirect()->route('evento.mostrar')->with('success', 'Evento eliminado exitosamente');
     
     }
+    public function buscar(Request $request)
+    {
+        $eventos = Evento::all();
+        return view('evento.buscar', compact('eventos'));
+    }
+
+     public function inscripcion($id)
+    {
+        $evento = Evento::find($id);  
+        return view('evento.inscripcion', compact('evento'));  
+    }
+
+    public function inscribir(Request $request, $id)
+{
+    
+    $request->validate([
+        'nombre' => 'required|string|max:255',
+        'email' => 'required|email',
+    ]);
+
+    
+    $usuario = Auth::user();
+
+    
+    $inscripcionExistente = Inscripcion::where('user_id', $usuario->id)
+                                       ->where('evento_id', $id)
+                                       ->first();  
+
+    
+    if ($inscripcionExistente) {
+        return redirect()->route('evento.mostrar')->with('error', 'Ya estás inscrito en este evento');
+    }
+
+    
+    Inscripcion::create([
+        'user_id' => $usuario->id,
+        'evento_id' => $id,
+    ]);
+
+    
+    return redirect()->route('evento.mostrar')->with('success', 'Te has inscrito correctamente al evento');
+}
 }
