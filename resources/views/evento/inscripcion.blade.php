@@ -5,7 +5,7 @@
     <h1>Inscripción al Evento: {{ $evento->nombre }}</h1>
     <p>{{ $evento->descripcion }}</p>
 
-    <!-- Formulario para inscribirse al evento -->
+    
     <form method="POST" action="{{ route('evento.inscribir', $evento->id) }}">
         @csrf
 

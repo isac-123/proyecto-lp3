@@ -8,10 +8,7 @@ use App\Models\Inscripcion;
 
 class EventoController extends Controller
 {
-<<<<<<< HEAD
-=======
-#aaaaaa
->>>>>>> 92f806b7fb186e061ec7372a4a4e044cfdac5083
+
     public function mostrar()
     {
         if (Auth::check()) {
